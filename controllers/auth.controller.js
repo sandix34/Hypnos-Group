@@ -1,6 +1,8 @@
 const db = require("../models");
+const { SECRET } = process.env;
 const User = db.user;
 const Role = db.role;
+let jwt = require("jsonwebtoken");
 let bcrypt = require("bcryptjs");
 
 // Create new User in database (role is user if not specifying role)
@@ -52,4 +54,48 @@ exports.signup = (req, res) => {
             });
         }
     });
+};
+
+exports.signin = (req, res) => {
+    // Check if user exists in database
+    User.findOne({
+        username: req.body.username
+    })
+        .populate("roles", "-__v")
+        .exec((err, user) => {
+            if (err) {
+                res.status(500).send({ message: err });
+                return;
+            }
+            if (!user) {
+                return res.status(404).send({ message: "User Not found." });
+            }
+            // Compare the password with the password in the database with bcrypt
+            let passwordIsValid = bcrypt.compareSync(
+                req.body.password,
+                user.password
+            );
+            if (!passwordIsValid) {
+                return res.status(401).send({
+                    accessToken: null,
+                    message: "Invalid Password!"
+                });
+            }
+            // generate a token with jsonwebtoken
+            let token = jwt.sign({ id: user.id }, SECRET, {
+                expiresIn: 86400 // 24 hours
+            });
+            let authorities = [];
+            for (let i = 0; i < user.roles.length; i++) {
+                authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
+            }
+            // Return user information
+            res.status(200).send({
+                id: user._id,
+                username: user.username,
+                email: user.email,
+                roles: authorities,
+                accessToken: token
+            });
+        });
 };
