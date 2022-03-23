@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-board-manager',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardManagerComponent implements OnInit {
 
-  constructor() { }
+  content?: string;
+
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userService.getManagerBoard().subscribe({
+      next: (data) => {
+        this.content = data;
+      },
+      error: (err) => {
+        this.content = JSON.parse(err.error).message;
+      }
+    })
   }
 
 }

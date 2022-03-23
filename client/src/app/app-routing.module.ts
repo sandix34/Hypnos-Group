@@ -5,6 +5,7 @@ import { RegisterComponent } from "./register/register.component";
 import { LoginComponent } from "./login/login.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {BoardAdminComponent} from "./board-admin/board-admin.component";
+import {BoardManagerComponent} from "./board-manager/board-manager.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'admin', component: BoardAdminComponent },
+  { path: 'manager', component: BoardManagerComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
@@ -20,5 +22,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
-
