@@ -16,14 +16,23 @@ import {AuthService} from "./_services/auth.service";
 import {TokenStorageService} from "./_services/token-storage.service";
 import {UserService} from "./_services/user.service";
 
-import { AuthInterceptor } from "./_helpers/auth.interceptor"
+import { AuthInterceptor } from "./_helpers/auth.interceptor";
+
+import { ProfileComponent } from './profile/profile.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { BoardManagerComponent } from './board-manager/board-manager.component';
+import { BoardUserComponent } from './board-user/board-user.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent,
+    BoardAdminComponent,
+    BoardManagerComponent,
+    BoardUserComponent
   ],
   imports: [
     BrowserModule,
