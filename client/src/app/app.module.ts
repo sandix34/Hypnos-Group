@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { LayoutModule } from "./shared/modules/layout/layout.module";
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -21,7 +22,8 @@ import { AuthInterceptor } from "./_helpers/auth.interceptor";
 import { ProfileComponent } from './profile/profile.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardManagerComponent } from './board-manager/board-manager.component';
-import { BoardUserComponent } from './board-user/board-user.component'
+import { BoardUserComponent } from './board-user/board-user.component';
+import { HeaderComponent } from './shared/components/header/header.component'
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { BoardUserComponent } from './board-user/board-user.component'
     ProfileComponent,
     BoardAdminComponent,
     BoardManagerComponent,
-    BoardUserComponent
+    BoardUserComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { BoardUserComponent } from './board-user/board-user.component'
     ReactiveFormsModule,
     BrowserAnimationsModule,
     LayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    FlexLayoutModule
   ],
   providers: [
     AuthService,

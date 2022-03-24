@@ -1,0 +1,23 @@
+<mat-toolbar class="mat-elevation-z10" color="primary">
+  <div fxHide.gt-xs>
+    <button mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign.xs="center">
+    <a class="valign-center" routerLink="/home">
+      <mat-icon fxHide.xs>home</mat-icon>
+      <div style="margin-left:10px;">Hypnos Group</div>
+    </a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+    <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+      <li>
+        <a routerLink="/login">Connexion</a>
+      </li>
+      <li>
+        <a routerLink="/register">Inscription</a>
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>
