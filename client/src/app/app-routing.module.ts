@@ -3,11 +3,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from "./home/home.component";
 import { RegisterComponent } from "./register/register.component";
 import { LoginComponent } from "./login/login.component";
+import {ProfileComponent} from "./profile/profile.component";
+import {BoardAdminComponent} from "./board-admin/board-admin.component";
+import {BoardManagerComponent} from "./board-manager/board-manager.component";
+import {BoardUserComponent} from "./board-user/board-user.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'admin', component: BoardAdminComponent },
+  { path: 'manager', component: BoardManagerComponent },
+  { path: 'user', component: BoardUserComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

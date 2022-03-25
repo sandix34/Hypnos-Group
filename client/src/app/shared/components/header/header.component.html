@@ -1,0 +1,44 @@
+<mat-toolbar class="mat-elevation-z10" color="primary">
+  <div fxHide.gt-xs>
+    <button mat-icon-button  (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <ul routerLinkActive="active" xLayout fxLayoutGap="50px" fxFlex fxLayout fxHide.xs>
+    <li>
+      <a class="valign-center" href="/home" routerLink="home">
+        <mat-icon fxHide.xs>home</mat-icon>
+        <div style="margin-left:10px;">Hypnos Group</div>
+      </a>
+    </li>
+    <li *ngIf="showAdminBoard">
+      <a href="/admin" routerLink="admin">Admin Board</a>
+    </li>
+    <li *ngIf="showManagerBoard">
+      <a href="/manager" routerLink="manager">Manager Board</a>
+    </li>
+    <li>
+      <a href="/user"  *ngIf="isLoggedIn" routerLink="user">Mes réservations</a>
+    </li>
+  </ul>
+  <ul *ngIf="!isLoggedIn" xLayout fxLayoutGap="15px">
+    <li>
+      <a href="/register" routerLink="register">Inscription</a>
+    </li>
+    <li>
+      <a href="/login" routerLink="login">Connexion</a>
+    </li>
+  </ul>
+  <ul *ngIf="isLoggedIn" xLayout fxLayoutGap="15px">
+    <li>
+      <a href="/profile" routerLink="profile">
+        <mat-icon>account_circle</mat-icon>
+      </a>
+    </li>
+    <li>
+      <a href class="nav-link" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+      </a>
+    </li>
+  </ul>
+</mat-toolbar>
