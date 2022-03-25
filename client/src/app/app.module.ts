@@ -23,7 +23,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardManagerComponent } from './board-manager/board-manager.component';
 import { BoardUserComponent } from './board-user/board-user.component';
-import { HeaderComponent } from './shared/components/header/header.component'
+import { HeaderComponent } from './shared/components/header/header.component';
 
 @NgModule({
   declarations: [
