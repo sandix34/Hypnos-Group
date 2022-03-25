@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HashLocationStrategy, LocationStrategy  } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import {ReactiveFormsModule} from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
@@ -53,6 +54,7 @@ import { SidenavListComponent } from './shared/components/sidenav-list/sidenav-l
     TokenStorageService,
     UserService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide : LocationStrategy , useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent]
 })
