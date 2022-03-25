@@ -1,0 +1,14 @@
+<mat-nav-list>
+  <a href="/home" mat-list-item routerLink="home" (click)="onSidenavClose()">
+    <mat-icon>home</mat-icon> <span class="nav-caption">Home</span>
+  </a>
+  <a *ngIf="isLoggedIn" mat-list-item routerLink="/user" (click)="onSidenavClose()">
+    <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">Mes réservations</span>
+  </a>
+  <a *ngIf="showManagerBoard" href="/manager" mat-list-item routerLink="manager" (click)="onSidenavClose()">
+    <mat-icon>assignment_ind</mat-icon><span class="nav-caption">Manager Board</span>
+  </a>
+  <a *ngIf="showAdminBoard" href="/admin" mat-list-item routerLink="admin" (click)="onSidenavClose()">
+    <mat-icon>assignment_ind</mat-icon><span class="nav-caption">Admin Board</span>
+  </a>
+</mat-nav-list>

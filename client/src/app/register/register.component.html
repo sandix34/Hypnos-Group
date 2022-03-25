@@ -1,5 +1,5 @@
-<div class="container">
-  <mat-card>
+<div class="container" >
+  <mat-card *ngIf="!isSuccessful" class="mat-elevation-z10" >
     <mat-card-title>Créer votre compte</mat-card-title>
     <mat-card-content>
       <form [formGroup]="form" (submit)="submit()">
@@ -30,4 +30,5 @@
       <p>Form Status: {{ form.status }}</p>
     </mat-card-content>
   </mat-card>
+  <mat-card *ngIf="isSuccessful">Votre inscription est réussie</mat-card>
 </div>
