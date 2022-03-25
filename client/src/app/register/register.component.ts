@@ -15,6 +15,8 @@ export class RegisterComponent implements OnInit {
     password: [null, Validators.required]
   })
 
+  isSuccessful = false;
+
   constructor( private fb: FormBuilder,  private authService: AuthService) {}
 
   ngOnInit(): void {}
@@ -26,6 +28,7 @@ export class RegisterComponent implements OnInit {
       this.authService.register(this.form.getRawValue()).subscribe({
         next: (data) => {
          console.log(data);
+          this.isSuccessful = true;
         },
         error: (err) => {
           this.error = err?.error || 'An error has occurred';
