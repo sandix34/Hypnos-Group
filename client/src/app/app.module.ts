@@ -24,6 +24,7 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardManagerComponent } from './board-manager/board-manager.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 import { HeaderComponent } from './shared/components/header/header.component';
+import { SidenavListComponent } from './shared/components/sidenav-list/sidenav-list.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { HeaderComponent } from './shared/components/header/header.component';
     BoardAdminComponent,
     BoardManagerComponent,
     BoardUserComponent,
-    HeaderComponent
+    HeaderComponent,
+    SidenavListComponent
   ],
   imports: [
     BrowserModule,

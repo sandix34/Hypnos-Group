@@ -1,14 +1,15 @@
-import { Component, OnInit, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {TokenStorageService} from "../../../_services/token-storage.service";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-sidenav-list',
+  templateUrl: './sidenav-list.component.html',
+  styleUrls: ['./sidenav-list.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class SidenavListComponent implements OnInit {
+  @Output() sidenavClose = new EventEmitter();
 
-  @Output() public sidenavToggle = new EventEmitter();
+  constructor(private tokenStorageService: TokenStorageService) { }
 
   private roles: string[] = [];
   isLoggedIn = false;
@@ -16,10 +17,7 @@ export class HeaderComponent implements OnInit {
   showManagerBoard = false;
   username?: string;
 
-  constructor(private tokenStorageService: TokenStorageService) { }
-
-  ngOnInit(): void {
-
+  ngOnInit() {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
@@ -30,12 +28,8 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  logout(): void {
-    this.tokenStorageService.signOut();
-  }
-
-  public onToggleSidenav = () => {
-    this.sidenavToggle.emit();
+  public onSidenavClose = () => {
+    this.sidenavClose.emit();
   }
 
 }
