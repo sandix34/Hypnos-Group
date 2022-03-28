@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { HashLocationStrategy, LocationStrategy  } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import {ReactiveFormsModule} from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -15,8 +15,9 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {AuthService} from "./_services/auth.service";
-import {TokenStorageService} from "./_services/token-storage.service";
-import {UserService} from "./_services/user.service";
+import { TokenStorageService } from "./_services/token-storage.service";
+import { UserService } from "./_services/user.service";
+import { HotelService } from "./_services/hotel.service";
 
 import { AuthInterceptor } from "./_helpers/auth.interceptor";
 
@@ -55,6 +56,7 @@ import { AddHotelComponent } from './add-hotel/add-hotel.component';
     AuthService,
     TokenStorageService,
     UserService,
+    HotelService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide : LocationStrategy , useClass: HashLocationStrategy }
   ],
