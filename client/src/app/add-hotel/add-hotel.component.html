@@ -1,1 +1,41 @@
-<p>add-hotel works!</p>
+<div class="container" >
+  <mat-card *ngIf="!isSuccessful" class="mat-elevation-z10" >
+    <mat-card-title>Créer un Hotel</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="form" (submit)="submit()">
+        <mat-form-field>
+          <mat-label>Nom</mat-label>
+          <input matInput type="text" formControlName="name" />
+          <mat-error>
+            Veuillez renseigner un nom.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Ville</mat-label>
+          <input matInput type="text" formControlName="city" />
+          <mat-error>
+            Veuillez renseigner une ville.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Adresse</mat-label>
+          <input matInput type="text" formControlName="address" />
+          <mat-error>
+            Veuillez renseigner une adresse.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <input matInput type="text" formControlName="description" />
+          <mat-error>
+            Veuillez renseigner une description.
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary">Ajouter</button>
+      </form>
+      <p>Form value: {{ form.value | json }}</p>
+      <p>Form Status: {{ form.status }}</p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card *ngIf="isSuccessful">L'hôtel a été soumis avec succès !</mat-card>
+</div>
