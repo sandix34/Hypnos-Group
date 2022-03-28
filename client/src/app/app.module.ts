@@ -26,6 +26,7 @@ import { BoardManagerComponent } from './board-manager/board-manager.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SidenavListComponent } from './shared/components/sidenav-list/sidenav-list.component';
+import { AddHotelComponent } from './add-hotel/add-hotel.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SidenavListComponent } from './shared/components/sidenav-list/sidenav-l
     BoardManagerComponent,
     BoardUserComponent,
     HeaderComponent,
-    SidenavListComponent
+    SidenavListComponent,
+    AddHotelComponent
   ],
   imports: [
     BrowserModule,

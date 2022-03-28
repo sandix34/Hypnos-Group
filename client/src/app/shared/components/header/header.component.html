@@ -18,7 +18,7 @@
       <a href="/manager" routerLink="manager">Manager Board</a>
     </li>
     <li>
-      <a href="/user"  *ngIf="isLoggedIn" routerLink="user">Mes réservations</a>
+      <a *ngIf="showUserBoard" href="/user" routerLink="user">Mes réservations</a>
     </li>
   </ul>
   <ul *ngIf="!isLoggedIn" xLayout fxLayoutGap="15px">
