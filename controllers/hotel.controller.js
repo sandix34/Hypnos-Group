@@ -4,13 +4,13 @@ const Hotel = db.hotel;
 // Create and Save a new Hotel
 exports.create = (req, res) => {
     // Validate request
-    if (!req.body.title) {
+    if (!req.body.name) {
         res.status(400).send({ message: "Content can not be empty!" });
         return;
     }
     // Create a Hotel
     const hotel = new Hotel({
-        title: req.body.title,
+        name: req.body.name,
         city: req.body.city,
         address: req.body.address,
         description: req.body.description,
