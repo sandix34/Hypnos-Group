@@ -19,6 +19,12 @@ const Hotel = mongoose.model(
                 type: String,
                 required: true
             },
+        username: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "User"
+            }
+        ]
 
         },
         { timestamps: true }

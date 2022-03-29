@@ -8,6 +8,7 @@ import {BoardAdminComponent} from "./board-admin/board-admin.component";
 import {BoardManagerComponent} from "./board-manager/board-manager.component";
 import {BoardUserComponent} from "./board-user/board-user.component";
 import {AddHotelComponent} from "./add-hotel/add-hotel.component";
+import {AddManagerComponent} from "./add-manager/add-manager.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'admin', component: BoardAdminComponent,
     children: [
-      { path: 'add-hotel', component: AddHotelComponent }
+      { path: 'add-hotel', component: AddHotelComponent },
+      { path: 'add-manager', component: AddManagerComponent }
     ]
   },
   { path: 'manager', component: BoardManagerComponent },

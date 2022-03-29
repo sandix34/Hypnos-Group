@@ -8,6 +8,7 @@ exports.create = (req, res) => {
         res.status(400).send({ message: "Content can not be empty!" });
         return;
     }
+
     // Create a Hotel
     const hotel = new Hotel({
         name: req.body.name,
@@ -16,6 +17,7 @@ exports.create = (req, res) => {
         description: req.body.description,
         published: req.body.published ? req.body.published : false
     });
+
     // Save Hotel in the database
     hotel
         .save(hotel)
