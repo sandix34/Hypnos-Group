@@ -19,7 +19,7 @@ const Hotel = mongoose.model(
                 type: String,
                 required: true
             },
-        username: [
+        user: [
             {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "User"

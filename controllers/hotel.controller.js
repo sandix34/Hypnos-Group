@@ -14,8 +14,7 @@ exports.create = (req, res) => {
         name: req.body.name,
         city: req.body.city,
         address: req.body.address,
-        description: req.body.description,
-        published: req.body.published ? req.body.published : false
+        description: req.body.description
     });
 
     // Save Hotel in the database
@@ -34,7 +33,18 @@ exports.create = (req, res) => {
 
 // Retrieve all Hotels from the database.
 exports.findAll = (req, res) => {
-
+    const name = req.query.name;
+    let condition = name ? { name: { $regex: new RegExp(name), $options: "i" } } : {};
+    Hotel.find(condition)
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving hotels."
+            });
+        });
 };
 
 // Find a single Hotel with an id

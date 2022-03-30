@@ -27,7 +27,7 @@ export class AddHotelComponent implements OnInit {
 
   public submit() {
     if (this.form.valid) {
-      this.hotelService.create(this.form.getRawValue()). subscribe({
+      this.hotelService.createHotel(this.form.getRawValue()). subscribe({
         next: (data) => {
           console.log(data);
           this.isSuccessful = true;
