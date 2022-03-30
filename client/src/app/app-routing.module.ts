@@ -15,12 +15,9 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'admin', component: BoardAdminComponent,
-    children: [
-      { path: 'add-hotel', component: AddHotelComponent },
-      { path: 'add-manager', component: AddManagerComponent }
-    ]
-  },
+  { path: 'admin', component: BoardAdminComponent},
+  { path: 'admin/add-hotel', component: AddHotelComponent },
+  { path: 'admin/add-manager', component: AddManagerComponent },
   { path: 'manager', component: BoardManagerComponent },
   { path: 'user', component: BoardUserComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },

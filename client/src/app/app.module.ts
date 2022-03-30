@@ -30,6 +30,7 @@ import { SidenavListComponent } from './shared/components/sidenav-list/sidenav-l
 import { AddHotelComponent } from './add-hotel/add-hotel.component';
 import { AddManagerComponent } from './add-manager/add-manager.component';
 import { HotelsListComponent } from './hotels-list/hotels-list.component';
+import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { HotelsListComponent } from './hotels-list/hotels-list.component';
     SidenavListComponent,
     AddHotelComponent,
     AddManagerComponent,
-    HotelsListComponent
+    HotelsListComponent,
+    HotelDetailsComponent
   ],
   imports: [
     BrowserModule,

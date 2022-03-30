@@ -1,18 +1,4 @@
-<div fxLayout="column">
-  <ul xLayout fxLayoutGap="50px" fxFlex fxLayout fxLayoutAlign="center">
-    <li>
-      <a href="/add-hotel" routerLink="add-hotel">
-        <button mat-raised-button color="primary">Ajouter un Hotel</button>
-      </a>
-    </li>
-    <li>
-      <a href="/add-manager" routerLink="add-manager">
-        <button mat-raised-button color="primary">Ajouter un Manager</button>
-      </a>
-    </li>
-  </ul>
-  <div>
+<div fxLayout="row" >
     <router-outlet></router-outlet>
-  </div>
   <app-hotels-list></app-hotels-list>
 </div>

@@ -1,0 +1,15 @@
+<div class="container" *ngIf="viewMode;">
+  <div *ngIf="currentHotel.name">
+    <mat-card>
+      <mat-card-title>{{ currentHotel.name }}</mat-card-title>
+      <mat-card-subtitle>{{ currentHotel.city }}</mat-card-subtitle>
+      <mat-card-content>
+        <p><strong>Adresse: </strong>{{ currentHotel.address }}</p>
+        <p><strong>Description: </strong>{{ currentHotel.description }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-stroked-button><mat-icon>edit</mat-icon></button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

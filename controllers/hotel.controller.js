@@ -47,9 +47,19 @@ exports.findAll = (req, res) => {
         });
 };
 
-// Find a single Hotel with an id
 exports.findOne = (req, res) => {
-
+    const id = req.params.id;
+    Hotel.findById(id)
+        .then(data => {
+            if (!data)
+                res.status(404).send({ message: "Not found Hotel with id " + id });
+            else res.send(data);
+        })
+        .catch(err => {
+            res
+                .status(500)
+                .send({ message: "Error retrieving Hotel with id=" + id });
+        });
 };
 
 // Update a Hotel by the id in the request
@@ -64,10 +74,5 @@ exports.delete = (req, res) => {
 
 // Delete all Hotel from the database.
 exports.deleteAll = (req, res) => {
-
-};
-
-// Find all published Hotel
-exports.findAllPublished = (req, res) => {
 
 };

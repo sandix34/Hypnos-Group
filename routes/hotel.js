@@ -7,4 +7,7 @@ router.post('/', controller.create);
 // Retrieve all Hotels
 router.get("/", controller.findAll);
 
+// Retrieve a single Hotel with id
+router.get("/:id", controller.findOne);
+
 module.exports = router;
