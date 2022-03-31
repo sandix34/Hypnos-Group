@@ -1,3 +1,21 @@
-<div class="container">
-  <h1>{{ content }}</h1>
+<div fxLayout="row" fxLayoutAlign="space-around none" >
+  <mat-card *ngFor="let hotel of hotels; let i = index">
+    <mat-card-header>
+      <mat-card-title>{{ hotel.name }}</mat-card-title>
+      <mat-card-subtitle class="valign-center">
+        <mat-icon>place</mat-icon>
+        <div>
+          {{ hotel.city }}
+        </div>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3volpPV6E8vm-7NMhi2uROR8UOu2ZWNGM7A&usqp=CAU">
+    <mat-card-content>
+      <p>{{ hotel.address }}</p>
+    </mat-card-content>
+    <mat-card-content>
+      <p>{{ hotel.description }}</p>
+    </mat-card-content>
+  </mat-card>
 </div>
+

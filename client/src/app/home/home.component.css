@@ -1,1 +1,9 @@
+mat-card {
+  width: 400px;
+}
 
+.valign-center {
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+}
