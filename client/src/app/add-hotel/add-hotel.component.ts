@@ -14,6 +14,7 @@ export class AddHotelComponent implements OnInit {
     city: [null, Validators.required],
     address: [null, Validators.required],
     description: [null, Validators.required],
+    image: [null, Validators.required],
     manager: [null, Validators.required]
   })
 

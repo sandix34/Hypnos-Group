@@ -15,7 +15,8 @@ exports.create = (req, res) => {
         name: req.body.name,
         city: req.body.city,
         address: req.body.address,
-        description: req.body.description
+        description: req.body.description,
+        image: req.body.image
     });
 
     // Save Hotel in the database

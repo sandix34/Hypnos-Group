@@ -19,6 +19,10 @@ const Hotel = mongoose.model(
                 type: String,
                 required: true
             },
+            image: {
+               type: String,
+               required: true
+            },
         user: [
             {
                 type: mongoose.Schema.Types.String,

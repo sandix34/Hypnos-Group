@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
     city: '',
     address: '',
     description: '',
+    image: ''
   };
 
   content?: string;
