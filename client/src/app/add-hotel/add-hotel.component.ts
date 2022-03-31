@@ -13,7 +13,8 @@ export class AddHotelComponent implements OnInit {
     name: [null, Validators.required],
     city: [null, Validators.required],
     address: [null, Validators.required],
-    description: [null, Validators.required]
+    description: [null, Validators.required],
+    manager: [null, Validators.required]
   })
 
   isSuccessful = false;
@@ -27,7 +28,7 @@ export class AddHotelComponent implements OnInit {
 
   public submit() {
     if (this.form.valid) {
-      this.hotelService.createHotel(this.form.getRawValue()). subscribe({
+      this.hotelService.createHotel(this.form.getRawValue()).subscribe({
         next: (data) => {
           console.log(data);
           this.isSuccessful = true;

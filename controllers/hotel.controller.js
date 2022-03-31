@@ -1,7 +1,8 @@
 const db = require("../models");
 const Hotel = db.hotel;
+const User = db.user;
 
-// Create and Save a new Hotel
+// Create and Save a new Hotel with is manager
 exports.create = (req, res) => {
     // Validate request
     if (!req.body.name) {
@@ -18,18 +19,27 @@ exports.create = (req, res) => {
     });
 
     // Save Hotel in the database
-    hotel
-        .save(hotel)
-        .then(data => {
-            res.send(data);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message:
-                    err.message || "Some error occurred while creating the Hotel."
+    hotel.save((err, hotel) => {
+        if (err) {
+            res.status(500).send({ message: err });
+        } if (req.body.manager) {
+            User.findOne( { username: req.body.manager }, (err, user) => {
+                if (err) {
+                    res.status(500).send({ message: err });
+                    return;
+                }
+                hotel.user = user.username;
+                hotel.save((err, data) => {
+                    if (err) {
+                        res.status(500).send({ message: err });
+                        return;
+                    }
+                    res.send(data);
+                });
             });
-        });
-};
+        }
+    });
+}
 
 // Retrieve all Hotels from the database.
 exports.findAll = (req, res) => {

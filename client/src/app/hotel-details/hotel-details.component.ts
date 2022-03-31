@@ -15,6 +15,7 @@ export class HotelDetailsComponent implements OnInit {
     city: '',
     address: '',
     description: '',
+    user: ''
   };
 
   constructor(private hotelService: HotelService) { }

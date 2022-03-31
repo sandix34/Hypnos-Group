@@ -4,4 +4,5 @@ export interface Hotel {
   city: string;
   address: string;
   description: string;
+  user?: string;
 }

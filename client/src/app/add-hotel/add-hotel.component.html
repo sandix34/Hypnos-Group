@@ -31,11 +31,18 @@
             Veuillez renseigner une description.
           </mat-error>
         </mat-form-field>
+        <mat-form-field>
+          <mat-label>Nom du manager</mat-label>
+          <input matInput type="text" formControlName="manager" />
+          <mat-error>
+            Veuillez renseigner le nom du manager.
+          </mat-error>
+        </mat-form-field>
         <button mat-raised-button color="primary">Ajouter</button>
       </form>
       <p>Form value: {{ form.value | json }}</p>
       <p>Form Status: {{ form.status }}</p>
     </mat-card-content>
   </mat-card>
-  <mat-card *ngIf="isSuccessful">L'hôtel a été soumis avec succès !</mat-card>
+  <<mat-card *ngIf="isSuccessful">L'hôtel a été soumis avec succès !</mat-card>
 </div>
