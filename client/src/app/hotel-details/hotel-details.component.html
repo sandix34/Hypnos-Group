@@ -1,4 +1,4 @@
-<div class="container" *ngIf="viewMode;">
+<div class="container" *ngIf="viewMode; else editable">
   <div *ngIf="currentHotel.name">
     <mat-card>
       <mat-card-title>{{ currentHotel.name }}</mat-card-title>
@@ -9,8 +9,69 @@
         <p><strong>Manager: </strong>{{ currentHotel.user }}</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-stroked-button><mat-icon>edit</mat-icon></button>
+        <a routerLink="/admin/{{ currentHotel._id }}">
+          <button mat-stroked-button><mat-icon>edit</mat-icon></button>
+        </a>
       </mat-card-actions>
     </mat-card>
   </div>
 </div>
+<ng-template #editable>
+  <div *ngIf="currentHotel._id">
+    <div class="container" >
+      <mat-card class="mat-elevation-z10" >
+        <mat-card-title>Hôtel</mat-card-title>
+        <mat-card-content>
+          <form>
+            <mat-form-field>
+              <mat-label>Nom</mat-label>
+              <input matInput type="text" name="nom" [(ngModel)]="currentHotel.name" />
+              <mat-error>
+                Veuillez renseigner un nom.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Ville</mat-label>
+              <input matInput type="text" name="ville" [(ngModel)]="currentHotel.city" />
+              <mat-error>
+                Veuillez renseigner une ville.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Adresse</mat-label>
+              <input matInput type="text" name="adresse" [(ngModel)]="currentHotel.address"/>
+              <mat-error>
+                Veuillez renseigner une adresse.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Description</mat-label>
+              <input matInput type="text" name="description" [(ngModel)]="currentHotel.description" />
+              <mat-error>
+                Veuillez renseigner une description.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Image</mat-label>
+              <input matInput type="text" name="image" [(ngModel)]="currentHotel.image" />
+              <mat-error>
+                Veuillez renseigner une url.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Nom du manager</mat-label>
+              <input matInput type="text" name="manager" [(ngModel)]="currentHotel.user" />
+              <mat-error>
+                Veuillez renseigner le nom du manager.
+              </mat-error>
+            </mat-form-field>
+          </form>
+          <button mat-raised-button class="edit" (click)="updateHotel()" ><mat-icon color="accent">edit</mat-icon></button>
+          <p>{{ message }}</p>
+          <button mat-raised-button class="Delete" (click)="deleteHotel()" ><mat-icon color="warn">delete</mat-icon></button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</ng-template>
+

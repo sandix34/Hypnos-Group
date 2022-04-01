@@ -10,4 +10,10 @@ router.get("/", controller.findAll);
 // Retrieve a single Hotel with id
 router.get("/:id", controller.findOne);
 
+// Update a Hotel with id
+router.put("/:id", controller.update);
+
+// Delete a Hotel with id
+router.delete("/:id", controller.delete);
+
 module.exports = router;

@@ -23,4 +23,12 @@ export class HotelService {
     return this.http.get(`${baseUrl}/${id}`);
   }
 
+  update(id: any, data: any): Observable<any> {
+    return this.http.put(`${baseUrl}/${id}`, data);
+  }
+
+  delete(id: any): Observable<any> {
+    return this.http.delete(`${baseUrl}/${id}`);
+  }
+
 }

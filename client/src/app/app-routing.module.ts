@@ -9,6 +9,7 @@ import {BoardManagerComponent} from "./board-manager/board-manager.component";
 import {BoardUserComponent} from "./board-user/board-user.component";
 import {AddHotelComponent} from "./add-hotel/add-hotel.component";
 import {AddManagerComponent} from "./add-manager/add-manager.component";
+import {HotelDetailsComponent} from "./hotel-details/hotel-details.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'admin', component: BoardAdminComponent},
   { path: 'admin/add-hotel', component: AddHotelComponent },
+  { path: 'admin/:id', component: HotelDetailsComponent },
   { path: 'admin/add-manager', component: AddManagerComponent },
   { path: 'manager', component: BoardManagerComponent },
   { path: 'user', component: BoardUserComponent },
