@@ -10,7 +10,7 @@
       </mat-card-content>
       <mat-card-actions>
         <a routerLink="/admin/{{ currentHotel._id }}">
-          <button mat-stroked-button><mat-icon>edit</mat-icon></button>
+          <button mat-stroked-button><mat-icon color="accent">edit</mat-icon></button>
         </a>
       </mat-card-actions>
     </mat-card>
@@ -66,9 +66,11 @@
               </mat-error>
             </mat-form-field>
           </form>
-          <button mat-raised-button class="edit" (click)="updateHotel()" ><mat-icon color="accent">edit</mat-icon></button>
+          <div fxLayout="row" fxLayoutAlign="none center" fxLayoutGap="10px" >
+            <button mat-raised-button class="edit" (click)="updateHotel()" ><mat-icon color="accent">edit</mat-icon></button>
+            <button mat-raised-button class="Delete" (click)="deleteHotel()" ><mat-icon color="warn">delete</mat-icon></button>
+          </div>
           <p>{{ message }}</p>
-          <button mat-raised-button class="Delete" (click)="deleteHotel()" ><mat-icon color="warn">delete</mat-icon></button>
         </mat-card-content>
       </mat-card>
     </div>
