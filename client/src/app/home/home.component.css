@@ -1,0 +1,14 @@
+mat-card {
+  width: 400px;
+  margin: 10px;
+}
+
+.valign-center {
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+}
+
+h1{
+  margin: 30px;
+}

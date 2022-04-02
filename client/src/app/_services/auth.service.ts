@@ -22,4 +22,8 @@ export class AuthService {
   login(user: User): Observable<any> {
     return this.http.post(AUTH_API + 'signin', user, httpOptions);
   }
+
+  public addManager(user: User): Observable<any> {
+    return this.http.post(AUTH_API + 'add-manager', user, httpOptions);
+  }
 }

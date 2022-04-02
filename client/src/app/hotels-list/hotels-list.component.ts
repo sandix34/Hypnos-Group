@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from "../_services/user.service";
 import { HotelService } from "../_services/hotel.service";
 import { Hotel } from "../shared/interfaces/hotel.interface";
 
-
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-hotels-list',
+  templateUrl: './hotels-list.component.html',
+  styleUrls: ['./hotels-list.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HotelsListComponent implements OnInit {
+
+  displayedColumns: string[] = ['name'];
+
   hotels?: Hotel[];
 
   currentHotel: Hotel = {
@@ -17,25 +18,15 @@ export class HomeComponent implements OnInit {
     city: '',
     address: '',
     description: '',
-    image: ''
   };
+  currentIndex = -1;
 
-  content?: string;
-
-  constructor(private userService: UserService, private hotelService: HotelService) { }
+  constructor(private hotelService: HotelService) { }
 
   ngOnInit(): void {
-    this.userService.getPublicContent().subscribe({
-      next: (data) => {
-        this.content = data;
-      },
-      error: (err) => {
-        this.content = JSON.parse(err.error).message;
-      }
-    })
-
     this.retrieveHotels();
   }
+
   retrieveHotels(): void {
     this.hotelService.getAllHotels()
       .subscribe({
@@ -45,6 +36,11 @@ export class HomeComponent implements OnInit {
         },
         error: (e) => console.error(e)
       });
+  }
+
+  setActiveHotel(hotel: Hotel, index: number): void {
+    this.currentHotel = hotel;
+    this.currentIndex = index;
   }
 
 }
