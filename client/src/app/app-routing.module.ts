@@ -7,16 +7,22 @@ import {ProfileComponent} from "./profile/profile.component";
 import {BoardAdminComponent} from "./board-admin/board-admin.component";
 import {BoardManagerComponent} from "./board-manager/board-manager.component";
 import {BoardUserComponent} from "./board-user/board-user.component";
+import {AddHotelComponent} from "./add-hotel/add-hotel.component";
+import {AddManagerComponent} from "./add-manager/add-manager.component";
+import {HotelDetailsComponent} from "./hotel-details/hotel-details.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'admin', component: BoardAdminComponent },
+  { path: 'admin', component: BoardAdminComponent},
+  { path: 'admin/add-manager', component: AddManagerComponent },
+  { path: 'admin/add-hotel', component: AddHotelComponent },
+  { path: 'admin/:id', component: HotelDetailsComponent },
   { path: 'manager', component: BoardManagerComponent },
   { path: 'user', component: BoardUserComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({

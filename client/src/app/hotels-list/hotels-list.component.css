@@ -1,0 +1,21 @@
+.valign-center {
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+}
+
+mat-icon {
+  color: green;
+}
+
+a {
+  color: green;
+}
+
+.detail {
+  margin-left: 50px;
+}
+
+mat-list-item {
+  cursor: pointer;
+}

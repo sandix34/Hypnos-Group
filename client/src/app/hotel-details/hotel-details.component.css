@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+mat-card {
+  width: 100%;
+  max-width: 400px;
+}
+
+mat-icon {
+  color: #AA00FF;
+}
+
+.edit {
+  color: #AA00FF;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+mat-form-field {
+  margin-bottom: 10px;
+}

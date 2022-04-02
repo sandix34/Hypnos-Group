@@ -1,0 +1,22 @@
+<div fxLayout="row" fxLayout.xs="column">
+  <div>
+    <div fxLayoutGap="10px" >
+      <h2>Hôtels</h2>
+      <a class="valign-center" routerLink="/admin/add-hotel">
+        <mat-icon>add_circle_outline</mat-icon>
+        <div style="margin-left:10px;">Ajouter un Hôtel</div>
+      </a>
+    </div>
+    <mat-list>
+      <mat-list-item *ngFor="let hotel of hotels; let i = index" (click)="setActiveHotel(hotel, i)">
+        <div style="margin-left:10px;">{{ hotel.name }}</div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div>
+    <app-hotel-details
+      [viewMode]="true"
+      [currentHotel]="currentHotel"
+    ></app-hotel-details>
+  </div>
+</div>

@@ -5,6 +5,37 @@ const Role = db.role;
 let jwt = require("jsonwebtoken");
 let bcrypt = require("bcryptjs");
 
+// Create new manager in database
+exports.addManager = (req, res) => {
+
+    const user = new User({
+        username: req.body.username,
+        email: req.body.email,
+        password: bcrypt.hashSync(req.body.password, 8)
+    });
+
+    user.save((err, user) => {
+        if (err) {
+            res.status(500).send({ message: err });
+        } else {
+            Role.findOne({ name: "manager" }, (err, role) => {
+                if (err) {
+                    res.status(500).send({ message: err });
+                    return;
+                }
+                user.roles = [role._id];
+                user.save(err => {
+                    if (err) {
+                        res.status(500).send({ message: err });
+                        return;
+                    }
+                    res.send({ message: "User was registered successfully!" });
+                });
+            });
+        }
+    });
+}
+
 // Create new User in database (role is user if not specifying role)
 exports.signup = (req, res) => {
     const user = new User({

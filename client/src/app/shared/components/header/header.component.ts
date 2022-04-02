@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   isLoggedIn = false;
   showAdminBoard = false;
   showManagerBoard = false;
+  showUserBoard = false;
   username?: string;
 
   constructor(private tokenStorageService: TokenStorageService) { }
@@ -26,6 +27,7 @@ export class HeaderComponent implements OnInit {
       this.roles = user.roles;
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
       this.showManagerBoard = this.roles.includes('ROLE_MANAGER');
+      this.showUserBoard = this.roles.includes('ROLE_USER');
       this.username = user.username;
     }
   }

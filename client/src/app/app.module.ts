@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { HashLocationStrategy, LocationStrategy  } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -15,8 +15,9 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {AuthService} from "./_services/auth.service";
-import {TokenStorageService} from "./_services/token-storage.service";
-import {UserService} from "./_services/user.service";
+import { TokenStorageService } from "./_services/token-storage.service";
+import { UserService } from "./_services/user.service";
+import { HotelService } from "./_services/hotel.service";
 
 import { AuthInterceptor } from "./_helpers/auth.interceptor";
 
@@ -26,6 +27,10 @@ import { BoardManagerComponent } from './board-manager/board-manager.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SidenavListComponent } from './shared/components/sidenav-list/sidenav-list.component';
+import { AddHotelComponent } from './add-hotel/add-hotel.component';
+import { AddManagerComponent } from './add-manager/add-manager.component';
+import { HotelsListComponent } from './hotels-list/hotels-list.component';
+import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
 
 @NgModule({
   declarations: [
@@ -38,21 +43,27 @@ import { SidenavListComponent } from './shared/components/sidenav-list/sidenav-l
     BoardManagerComponent,
     BoardUserComponent,
     HeaderComponent,
-    SidenavListComponent
+    SidenavListComponent,
+    AddHotelComponent,
+    AddManagerComponent,
+    HotelsListComponent,
+    HotelDetailsComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    LayoutModule,
-    HttpClientModule,
-    FlexLayoutModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        LayoutModule,
+        HttpClientModule,
+        FlexLayoutModule,
+        FormsModule
+    ],
   providers: [
     AuthService,
     TokenStorageService,
     UserService,
+    HotelService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide : LocationStrategy , useClass: HashLocationStrategy }
   ],
