@@ -3,3 +3,5 @@ const controller = require('../controllers/room.controller');
 
 // Create a new Room
 router.post('/', controller.create);
+
+module.exports = router;

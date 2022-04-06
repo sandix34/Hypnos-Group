@@ -18,6 +18,7 @@ import {AuthService} from "./_services/auth.service";
 import { TokenStorageService } from "./_services/token-storage.service";
 import { UserService } from "./_services/user.service";
 import { HotelService } from "./_services/hotel.service";
+import { RoomService } from "./_services/room.service";
 
 import { AuthInterceptor } from "./_helpers/auth.interceptor";
 
@@ -31,6 +32,7 @@ import { AddHotelComponent } from './add-hotel/add-hotel.component';
 import { AddManagerComponent } from './add-manager/add-manager.component';
 import { HotelsListComponent } from './hotels-list/hotels-list.component';
 import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
+import { AddRoomComponent } from './add-room/add-room.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
     AddHotelComponent,
     AddManagerComponent,
     HotelsListComponent,
-    HotelDetailsComponent
+    HotelDetailsComponent,
+    AddRoomComponent
   ],
     imports: [
         BrowserModule,
@@ -64,6 +67,7 @@ import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
     TokenStorageService,
     UserService,
     HotelService,
+    RoomService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide : LocationStrategy , useClass: HashLocationStrategy }
   ],

@@ -1,0 +1,41 @@
+<div class="container" >
+  <mat-card *ngIf="!isSuccessful" class="mat-elevation-z10" >
+    <mat-card-title>Ajouter une suite</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="form" (submit)="submit()">
+        <mat-form-field>
+          <mat-label>Titre</mat-label>
+          <input matInput type="text" formControlName="title" />
+          <mat-error>
+            Veuillez renseigner un titre.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Image</mat-label>
+          <input matInput type="text" formControlName="image" />
+          <mat-error>
+            Veuillez renseigner une url.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Prix</mat-label>
+          <input matInput type="text" formControlName="price" />
+          <mat-error>
+            Veuillez renseigner un prix.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <input matInput type="text" formControlName="description" />
+          <mat-error>
+            Veuillez renseigner une description.
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary">Ajouter</button>
+      </form>
+      <p>Form value: {{ form.value | json }}</p>
+      <p>Form Status: {{ form.status }}</p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card *ngIf="isSuccessful">La suite a été ajoutée avec succès !</mat-card>
+</div>
