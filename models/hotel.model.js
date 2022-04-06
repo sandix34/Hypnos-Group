@@ -20,15 +20,20 @@ const Hotel = mongoose.model(
                 required: true
             },
             image: {
-               type: String,
-               required: true
+                type: String,
+                required: true
             },
-        user: [
-            {
-                type: mongoose.Schema.Types.String,
-                ref: "User"
-            }
-        ]
+            user: [
+                {
+                    type: mongoose.Schema.Types.String,
+                    ref: "User"
+                }
+            ],
+            rooms: [
+                {
+                    type: mongoose.Schema.Types.ObjectId, ref: 'Room'
+                }
+            ]
 
         },
         { timestamps: true }

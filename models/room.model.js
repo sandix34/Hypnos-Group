@@ -27,7 +27,7 @@ const Room = mongoose.model(
             ]
 
         },
-        { timestamps: true }
+        { timestamps: true, collection: 'rooms' }
     )
 );
 

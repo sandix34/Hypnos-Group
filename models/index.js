@@ -6,5 +6,5 @@ db.user = require("./user.model");
 db.role = require("./role.model");
 db.ROLES = ["user", "admin", "manager"];
 db.hotel = require("./hotel.model");
-db.romm = require("room.model");
+db.room = require("room.model");
 module.exports = db;
